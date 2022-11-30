@@ -4,14 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="450"
         x:Class="InNLBurgeren.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="InNLBurgeren">
+        Icon="/Assets/inNLburgeren_ROUNDED_off.ico"
+        Title="InNLBurgeren">        
+        <Grid>
 
-    <Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+                <ListBox>
+                        <Label>Username: </Label>
+                        <TextBox Width="100" x:Name="Username" Margin="0,0,670,0"></TextBox>
+                        <Label>Password: </Label>
+                        <TextBox Width="100" x:Name="Password" Margin="0,0,670,0"></TextBox>
+                        <Button Click="Login_OnClick" Width="65" Height="30">Submit</Button>
+                </ListBox>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        
+
 
 </Window>

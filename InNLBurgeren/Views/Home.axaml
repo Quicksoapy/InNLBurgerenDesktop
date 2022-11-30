@@ -1,0 +1,17 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="InNLBurgeren.Views.Home"
+        Width="800" Height="450"
+        Title="Home">
+    
+        <Grid>
+                <Label x:Name="UsernameLabel"></Label>  
+                <Label PointerReleased="Thema1_OnClick" HorizontalAlignment="Left" VerticalAlignment="Top">Thema 1</Label>
+                <Label PointerReleased="Thema2_OnClick" HorizontalAlignment="Right" VerticalAlignment="Top">Thema 2</Label>
+                <Label PointerReleased="Thema3_OnClick" HorizontalAlignment="Left" VerticalAlignment="Bottom">Thema 3</Label>
+                <Label PointerReleased="Thema4_OnClick" HorizontalAlignment="Right" VerticalAlignment="Bottom">Thema 4</Label>
+        </Grid>
+</Window>
