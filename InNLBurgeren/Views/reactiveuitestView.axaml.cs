@@ -1,16 +1,12 @@
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
-using InNLBurgeren.Models;
-using InNLBurgeren.ViewModels;
 
 namespace InNLBurgeren.Views;
 
-public partial class Assignments : Window
+public partial class reactiveuitestView : Window
 {
-    public Assignments()
+    public reactiveuitestView()
     {
         InitializeComponent();
 #if DEBUG

@@ -10,7 +10,6 @@ public partial class Home : Window
     public Home()
     {
         InitializeComponent();
-        //UsernameLabel.Content = usernameText;
 #if DEBUG
         this.AttachDevTools();
 #endif
@@ -24,21 +23,28 @@ public partial class Home : Window
 
     private void Thema1_OnClick(object? sender, PointerReleasedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        Assignments assignments = new Assignments();
+        assignments.Show();
     }
 
     private void Thema2_OnClick(object? sender, PointerReleasedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        Assignments assignments = new Assignments();
+        assignments.Show();
+
     }
     
     private void Thema3_OnClick(object? sender, PointerReleasedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        Assignments assignments = new Assignments();
+        assignments.Show();
+
     }
     
     private void Thema4_OnClick(object? sender, PointerReleasedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        Assignments assignments = new Assignments();
+        assignments.Show();
+
     }
 }

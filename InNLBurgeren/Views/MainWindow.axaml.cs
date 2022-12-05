@@ -16,8 +16,10 @@ public partial class MainWindow : Window
 
         if (true)
         {
-            Home home = new Home();
-            home.Show();
+            reactiveuitestView ru = new();
+            ru.Show();
+            //Home home = new Home();
+            //home.Show();
         }
         else
         {
