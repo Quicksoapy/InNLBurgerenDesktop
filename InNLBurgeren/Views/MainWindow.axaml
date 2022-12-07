@@ -7,7 +7,8 @@
         Width="800" Height="450"
         x:Class="InNLBurgeren.Views.MainWindow"
         Icon="/Assets/inNLburgeren_ROUNDED_off.ico"
-        Title="InNLBurgeren">        
+        Title="InNLBurgeren">
+                
         <Grid>
 
                 <ListBox>
@@ -15,7 +16,7 @@
                         <TextBox Width="100" x:Name="Username" Margin="0,0,670,0"></TextBox>
                         <Label>Password: </Label>
                         <TextBox Width="100" x:Name="Password" Margin="0,0,670,0"></TextBox>
-                        <Button Click="Login_OnClick" Width="65" Height="30">Submit</Button>
+                        <Button Click="{Binding Path=Login_Onclick}" Width="65" Height="30">Submit</Button>
                 </ListBox>
 
         </Grid>

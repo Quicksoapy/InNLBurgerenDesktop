@@ -18,11 +18,13 @@ public class ReactiveViewModel : ReactiveObject
     {
         get
         {
+            Console.WriteLine($"returned _Name ({_Name})");
             return _Name;
         }
         set
         {
             // We can use "RaiseAndSetIfChanged" to check if the value changed and automatically notify the UI
+            Console.WriteLine($"set _Name ({value})");
             this.RaiseAndSetIfChanged(ref _Name, value);
         }
     }
@@ -34,11 +36,13 @@ public class ReactiveViewModel : ReactiveObject
             if (string.IsNullOrEmpty(Name))
             {
                 // If no Name is provided, use a default Greeting
+                Console.WriteLine("returned 'Hello World from Avalonia.Samples'");
                 return "Hello World from Avalonia.Samples";
             }
             else
             {
                 // else greet the User.
+                Console.WriteLine($"returned 'Hello {Name}'");
                 return $"Hello {Name}";
             }
         }

@@ -19,8 +19,7 @@ public class Assignment
     public int CategoryId { get; set; }
 
     public int Points { get; set; }
-    
-    
+
     //load DB
     //Foreach (item in DB) {assignments.Add(item);
 

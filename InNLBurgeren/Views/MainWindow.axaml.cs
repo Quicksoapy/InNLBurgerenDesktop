@@ -1,6 +1,7 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using InNLBurgeren.ViewModels;
 
 namespace InNLBurgeren.Views;
 
@@ -9,23 +10,8 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = new MainWindowViewModel();
     }
     
-    private void Login_OnClick(object? sender, RoutedEventArgs e)
-    {
-
-        if (true)
-        {
-            reactiveuitestView ru = new();
-            ru.Show();
-            //Home home = new Home();
-            //home.Show();
-        }
-        else
-        {
-            var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxStandardWindow("Error", "Login information incorrect.");
-            messageBoxStandardWindow.Show();
-        }
-    }
+    
 }

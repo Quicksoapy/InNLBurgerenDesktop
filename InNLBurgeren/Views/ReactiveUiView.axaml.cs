@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace InNLBurgeren.Views;
 
-public partial class reactiveuitestView : Window
+public partial class ReactiveUiView : Window
 {
-    public reactiveuitestView()
+    public ReactiveUiView()
     {
         InitializeComponent();
 #if DEBUG
