@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive;
 using Avalonia.Interactivity;
 using AvaloniaEdit.Document;
 using InNLBurgeren.Views;
@@ -6,12 +7,16 @@ using ReactiveUI;
 
 namespace InNLBurgeren.ViewModels;
 
-public class MainWindowViewModel : ReactiveObject
+public class MainWindowViewModel : ViewModelBase
 {
-    public string Greeting => "Welcome to Avalonia!";
 
-    public ReactiveViewModel ReactiveViewModel { get; } = new ReactiveViewModel();
-
+    public MainWindowViewModel()
+    {
+        Login = ReactiveCommand.Create(LoginEventHandler);
+    }
+    
+    public ReactiveCommand<Unit, Unit> Login { get; }
+    
     public void LoginEventHandler()
     {
         if (true)
