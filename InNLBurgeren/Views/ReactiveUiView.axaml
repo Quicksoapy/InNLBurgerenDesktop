@@ -6,7 +6,7 @@
         xmlns:viewModels="clr-namespace:InNLBurgeren.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:CompileBindings="True"
-        x:DataType="viewModels:ReactiveViewModel"
+        x:DataType="vm:ReactiveViewModel"
         x:Class="InNLBurgeren.Views.ReactiveUiView"
         Icon="/Assets/avalonia-logo.ico"
         Title="BasicMvvmSample">
