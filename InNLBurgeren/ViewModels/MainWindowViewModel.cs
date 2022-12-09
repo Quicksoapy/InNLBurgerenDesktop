@@ -2,6 +2,7 @@
 using System.Reactive;
 using Avalonia.Interactivity;
 using AvaloniaEdit.Document;
+using InNLBurgeren.Models;
 using InNLBurgeren.Views;
 using ReactiveUI;
 
@@ -9,7 +10,7 @@ namespace InNLBurgeren.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-
+    public User user = new(1,"sample","sample@sample.com");
     public MainWindowViewModel()
     {
         Login = ReactiveCommand.Create(LoginEventHandler);
@@ -31,4 +32,6 @@ public class MainWindowViewModel : ViewModelBase
             messageboxStandardWindow.Show();
         }
     }
+    
+    
 }
