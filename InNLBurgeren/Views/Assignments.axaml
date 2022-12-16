@@ -2,11 +2,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:InNLBurgeren.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         Height="450" Width="800"
+        x:CompileBindings="True"
+        x:DataType="viewModels:AssignmentsViewModel"
         x:Class="InNLBurgeren.Views.Assignments"
         Title="Assignments">
         <Grid>
-            <DataGrid DataContext="{Binding ReactiveViewModel}" Width="500" Height="300" Items="{Binding assignments}"></DataGrid>
+                <Label HorizontalAlignment="Center" Margin="0,50,0,0" x:Name="Question">QUESTION HERE</Label>
+                <TextBox HorizontalAlignment="Center" Width="300" Height="200" Margin="0,-60,0,0" x:Name="UserInput"></TextBox>
+                <Button Command="{Binding OnSubmit}" HorizontalAlignment="Center" Width="65" Height="30" Margin="0, 200, 0,0">Submit</Button>
         </Grid>
+        
 </Window>

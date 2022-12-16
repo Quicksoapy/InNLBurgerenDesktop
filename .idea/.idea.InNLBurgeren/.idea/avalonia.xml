@@ -4,6 +4,8 @@
     <option name="projectPerEditor">
       <map>
         <entry key="InNLBurgeren/App.axaml" value="InNLBurgeren/InNLBurgeren.csproj" />
+        <entry key="InNLBurgeren/Views/Assignments.axaml" value="InNLBurgeren/InNLBurgeren.csproj" />
+        <entry key="InNLBurgeren/Views/Home.axaml" value="InNLBurgeren/InNLBurgeren.csproj" />
         <entry key="InNLBurgeren/Views/MainWindow.axaml" value="InNLBurgeren/InNLBurgeren.csproj" />
         <entry key="InNLBurgeren/Views/ReactiveUiView.axaml" value="InNLBurgeren/InNLBurgeren.csproj" />
       </map>

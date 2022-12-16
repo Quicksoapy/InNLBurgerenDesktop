@@ -20,31 +20,4 @@ public partial class Home : Window
         AvaloniaXamlLoader.Load(this);
         
     }
-
-    private void Thema1_OnClick(object? sender, PointerReleasedEventArgs e)
-    {
-        Assignments assignments = new Assignments();
-        assignments.Show();
-    }
-
-    private void Thema2_OnClick(object? sender, PointerReleasedEventArgs e)
-    {
-        Assignments assignments = new Assignments();
-        assignments.Show();
-
-    }
-    
-    private void Thema3_OnClick(object? sender, PointerReleasedEventArgs e)
-    {
-        Assignments assignments = new Assignments();
-        assignments.Show();
-
-    }
-    
-    private void Thema4_OnClick(object? sender, PointerReleasedEventArgs e)
-    {
-        Assignments assignments = new Assignments();
-        assignments.Show();
-
-    }
 }

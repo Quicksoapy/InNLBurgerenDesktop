@@ -1,6 +1,3 @@
-login file->menu with 4 themes, load userinfo from DB
-
-when clicked on theme, overview of assignments? See whats done? Grades?
-
-when clicked on assignment, open assignment view. view is template, info (question, anwsers, correct answer etc) gets filled in. 
-answers position randomized every question. (track time per question, upload to database?)
+//TODO REQUIRED: DB functionality with sample user and questions
+//TODO load userinfo locally
+//TODO Pass subject to assignmentview, load 10 random questions of subject

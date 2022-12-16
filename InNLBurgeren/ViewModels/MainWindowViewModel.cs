@@ -21,8 +21,10 @@ public class MainWindowViewModel : ViewModelBase
     {
         if (true)
         {
-            ReactiveUiView ru = new();
-            ru.Show();
+            Home homeView = new();
+            homeView.Show();
+            var mySql = new DatabaseHandling.MySql();
+            mySql.Connect();
         }
         else
         {

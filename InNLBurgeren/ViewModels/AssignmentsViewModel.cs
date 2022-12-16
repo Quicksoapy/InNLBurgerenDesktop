@@ -2,28 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reactive;
 using System.Runtime.CompilerServices;
 using InNLBurgeren.Models;
+using ReactiveUI;
 
 namespace InNLBurgeren.ViewModels;
 
 
-public class AssignmentsViewModel : INotifyPropertyChanged
+public class AssignmentsViewModel  : ReactiveObject
 {
-    public ObservableCollection<Assignment> assignments { get; set; }= new ObservableCollection<Assignment>();
+   public AssignmentsViewModel()
+   {
+      OnSubmit = ReactiveCommand.Create(OnSubmitEventHandler);
+   }
+   public ReactiveCommand<Unit, Unit> OnSubmit { get; }
 
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-    {
-        if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-        field = value;
-        OnPropertyChanged(propertyName);
-        return true;
-    }
+   public void OnSubmitEventHandler()
+   {
+      
+   }
 }

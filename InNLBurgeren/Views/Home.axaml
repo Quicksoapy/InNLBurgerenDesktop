@@ -2,16 +2,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:InNLBurgeren.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:CompileBindings="True"
+        x:DataType="viewModels:HomeViewModel"
         x:Class="InNLBurgeren.Views.Home"
         Width="800" Height="450"
         Title="Home">
     
         <Grid>
-                <Label x:Name="UsernameLabel"></Label>  
-                <Label PointerReleased="Thema1_OnClick" HorizontalAlignment="Left" VerticalAlignment="Top">Thema 1</Label>
-                <Label PointerReleased="Thema2_OnClick" HorizontalAlignment="Right" VerticalAlignment="Top">Thema 2</Label>
-                <Label PointerReleased="Thema3_OnClick" HorizontalAlignment="Left" VerticalAlignment="Bottom">Thema 3</Label>
-                <Label PointerReleased="Thema4_OnClick" HorizontalAlignment="Right" VerticalAlignment="Bottom">Thema 4</Label>
+                <Label HorizontalAlignment="Center" VerticalAlignment="Top" x:Name="UsernameLabel">USERNAME</Label>  
+                <Button Command="{Binding KnmOpen}" Width="65" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top">KNM</Button>
+                <Button Command="{Binding ReadingOpen}" Width="65" Height="30" HorizontalAlignment="Right" VerticalAlignment="Top">Reading</Button>
+                <Button Command="{Binding ListeningOpen}" Width="65" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom">Listening</Button>
+                <Button Command="{Binding WritingOpen}" Width="65" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom">Writing</Button>
+                <Button Command="{Binding SpeakingOpen}" Width="65" Height="30" HorizontalAlignment="Center" VerticalAlignment="Bottom">Speaking</Button>
         </Grid>
 </Window>
