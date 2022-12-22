@@ -1,13 +1,14 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Input;
 using Avalonia.Markup.Xaml;
-
+using Avalonia.Interactivity;
+using InNLBurgeren.ViewModels;
 namespace InNLBurgeren.Views;
 
-public partial class Home : Window
+public partial class HomeView : Window
 {
-    public Home()
+    public HomeView()
     {
         InitializeComponent();
 #if DEBUG
@@ -18,6 +19,5 @@ public partial class Home : Window
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
-        
     }
 }

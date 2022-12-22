@@ -1,0 +1,23 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:InNLBurgeren.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="270"
+        Width="400" Height="270"
+        x:CompileBindings="True"
+        x:DataType="vm:MainWindowViewModel"
+        x:Class="InNLBurgeren.Views.HomeView"
+        Icon="/Assets/inNLburgeren_ROUNDED_off.ico"
+
+        Title="">
+    <Grid>
+        <ListBox VirtualizationMode="None" Width="400" HorizontalAlignment="Left">
+            <Button IsEnabled="True" Command="{Binding KnmOpen}" Width="100" Height="30">KNM</Button>
+            <Button IsEnabled="True" Command="{Binding ReadingOpen}" Width="100" Height="30">Reading</Button>
+            <Button IsEnabled="True" Command="{Binding ListeningOpen}" Width="100" Height="30">Listening</Button>
+            <Button IsEnabled="True" Command="{Binding WritingOpen}" Width="100" Height="30">Writing</Button>
+            <Button IsEnabled="True" Command="{Binding SpeakingOpen}" Width="100" Height="30">Speaking</Button>
+        </ListBox>
+    </Grid>
+</Window>

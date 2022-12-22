@@ -8,11 +8,12 @@
         x:CompileBindings="True"
         x:DataType="viewModels:AssignmentsViewModel"
         x:Class="InNLBurgeren.Views.Assignments"
+        Icon="/Assets/inNLburgeren_ROUNDED_off.ico"
         Title="Assignments">
         <Grid>
-                <Label HorizontalAlignment="Center" Margin="0,50,0,0" x:Name="Question">QUESTION HERE</Label>
-                <TextBox HorizontalAlignment="Center" Width="300" Height="200" Margin="0,-60,0,0" x:Name="UserInput"></TextBox>
-                <Button Command="{Binding OnSubmit}" HorizontalAlignment="Center" Width="65" Height="30" Margin="0, 200, 0,0">Submit</Button>
+                <TextBlock HorizontalAlignment="Center" Margin="0,50,0,0" Text="{Binding CurrentQuestion}"></TextBlock>
+                <TextBox HorizontalAlignment="Center" Width="300" Height="200" Margin="0,-60,0,0" Text="{Binding UserInput}"></TextBox>
+                <Button IsEnabled="True" Command="{Binding OnSubmit}" HorizontalAlignment="Center" Width="65" Height="30" Margin="0, 200, 0,0">Submit</Button>
         </Grid>
         
 </Window>

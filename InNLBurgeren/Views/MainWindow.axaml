@@ -13,15 +13,23 @@
         Title="InNLBurgeren">
         
         <Grid>
-
-                <ListBox>
+                
+                <ListBox VirtualizationMode="None" Width="400" HorizontalAlignment="Left">
+                        <Label>LOGIN: </Label>
                         <Label>Username: </Label>
-                        <TextBox Width="100" x:Name="Username" Margin="0,0,670,0"></TextBox>
+                        <TextBox Width="200" Text="{Binding Username}" HorizontalAlignment="Left"></TextBox>
                         <Label>Password: </Label>
-                        <TextBox Width="100" x:Name="Password" Margin="0,0,670,0"></TextBox>
+                        <TextBox PasswordChar="*" Width="200" Text="{Binding Password}" HorizontalAlignment="Left"></TextBox>
                         <Button Command="{Binding Login}" Width="65" Height="30">Submit</Button>
                 </ListBox>
-                
+                <ListBox VirtualizationMode="None" Width="400" HorizontalAlignment="Right">
+                        <Label>REGISTER: </Label>
+                        <Label>Username: </Label>
+                        <TextBox Width="200" Text="{Binding UsernameRegister}" HorizontalAlignment="Left"></TextBox>
+                        <Label>Password: </Label>
+                        <TextBox PasswordChar="*" Width="200" Text="{Binding PasswordRegister}" HorizontalAlignment="Left"></TextBox>
+                        <Button Command="{Binding Register}" Width="65" Height="30">Submit</Button>
+                </ListBox>
         </Grid>
         
 </Window>

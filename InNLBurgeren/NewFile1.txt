@@ -1,3 +1,2 @@
-//TODO REQUIRED: DB functionality with sample user and questions
-//TODO load userinfo locally
-//TODO Pass subject to assignmentview, load 10 random questions of subject
+//TODO BEFORE FRIDAY:
+//TODO 3 sample questions functioning, functioning register/login, Main->home->assignment pipeline fully working
