@@ -2,10 +2,14 @@
 using System.Reactive;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
+using Avalonia.Controls;
 using Avalonia.Interactivity;
 using AvaloniaEdit.Document;
 using InNLBurgeren.Models;
 using InNLBurgeren.Views;
+using MessageBox.Avalonia.DTO;
+using MessageBox.Avalonia.Enums;
 using ReactiveUI;
 using MySql = InNLBurgeren.DatabaseHandling.MySql;
 
@@ -59,12 +63,21 @@ public class MainWindowViewModel : ViewModelBase
         }
         else
         {
-            var messageboxStandardWindow = MessageBox.Avalonia.MessageBoxManager
-                .GetMessageBoxStandardWindow("Error", "Login information incorrect.");
-            messageboxStandardWindow.Show();
+            var messageBoxStandardWindow = MessageBox.Avalonia.MessageBoxManager.GetMessageBoxStandardWindow(
+                new MessageBoxStandardParams
+                {
+                    SizeToContent = SizeToContent.WidthAndHeight,
+                    ButtonDefinitions = ButtonEnum.Ok,
+                    ContentTitle = "Error",
+                    ContentHeader = "Login information incorrect.",
+                    ContentMessage = "Username and/or password are incorrect.\n"
+                });
+            
+            messageBoxStandardWindow.Show();
+            
         }
     }
-
+    
     private void RegisterEventHandler()
     {
         //_mySql.InitializeDatabase();

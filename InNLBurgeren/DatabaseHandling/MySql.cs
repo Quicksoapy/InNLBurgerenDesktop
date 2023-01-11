@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
+using InNLBurgeren.Models;
 using InNLBurgeren.Views;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
@@ -13,6 +16,15 @@ namespace InNLBurgeren.DatabaseHandling;
 
 public class MySql
 {
+    public enum Subjects
+    {
+        Knm = 0,
+        Reading = 1,
+        Writing = 2,
+        Listening = 3,
+        Speaking = 4
+    }
+    
     public class LoginData
     {
         public string Server;
@@ -83,22 +95,36 @@ public class MySql
             }
         }
     }
-
-    //TODO FIX
-    /*
-    public async Task<List<Assignments>> GetAssignments()
+    
+    public async Task<List<Assignment>> GetAssignments(Subjects subjects)
     {
         await using (var conn = GetConn().Result)
         {
+            List<Assignment> assignments = new List<Assignment>();
             await conn.OpenAsync();
             await using (var command = conn.CreateCommand())
             {
-                command.CommandText = "SELECT * FROM questions";
-                
+                command.CommandText = "SELECT * FROM questions WHERE SubjectId = @Subject";
+                command.Parameters.Add(new MySqlParameter("@Subject", (int)subjects));
+
+                var sqlDbDataReader = await command.ExecuteReaderAsync();
+                while (await sqlDbDataReader.ReadAsync())
+                {
+                    var assignment = new Assignment(0,"",0,"")
+                    {
+                        Id = sqlDbDataReader.GetInt32("Id"),
+                        SubjectId = sqlDbDataReader.GetInt32("SubjectId"),
+                        Question = sqlDbDataReader.GetString("Question"),
+                        Answer = sqlDbDataReader.GetString("Answer")
+                    };
+
+                    assignments.Add(assignment);
+                }
             }
+            return assignments;
         }
     }
-    */
+    
     
     public async void InitializeDatabase()
     {

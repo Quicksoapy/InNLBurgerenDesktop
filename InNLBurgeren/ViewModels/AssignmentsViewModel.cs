@@ -25,9 +25,10 @@ public class AssignmentsViewModel : ReactiveObject
    }
    public ReactiveCommand<Unit, Unit> OnLoad { get; }
    public ReactiveCommand<Unit, Unit> OnSubmit { get; }
+   public int SubjectId { get; set; }
 
    private List<Assignment> AssignmentsList = new List<Assignment>();
-
+   private DatabaseHandling.MySql _mySql = new DatabaseHandling.MySql();
    public int CurrentQuestionId { get; set; } = -1;
    private string currentQuestion;
 
@@ -62,9 +63,7 @@ public class AssignmentsViewModel : ReactiveObject
       }
       else
       {
-         AssignmentsList.Add(new Assignment(1, "1+1", 1, "2"));
-         AssignmentsList.Add(new Assignment(2, "5-2", 1, "3"));
-         AssignmentsList.Add(new Assignment(3, "4*4", 1, "16"));
+         _mySql.GetAssignments(DatabaseHandling.MySql.Subjects.Knm);
       }
       CurrentQuestionId += 1;
       CurrentQuestion = AssignmentsList[CurrentQuestionId].Question;

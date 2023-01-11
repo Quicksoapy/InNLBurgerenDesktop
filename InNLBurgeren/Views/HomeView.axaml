@@ -15,9 +15,7 @@
         <ListBox VirtualizationMode="None" Width="400" HorizontalAlignment="Left">
             <Button IsEnabled="True" Command="{Binding KnmOpen}" Width="100" Height="30">KNM</Button>
             <Button IsEnabled="True" Command="{Binding ReadingOpen}" Width="100" Height="30">Reading</Button>
-            <Button IsEnabled="True" Command="{Binding ListeningOpen}" Width="100" Height="30">Listening</Button>
             <Button IsEnabled="True" Command="{Binding WritingOpen}" Width="100" Height="30">Writing</Button>
-            <Button IsEnabled="True" Command="{Binding SpeakingOpen}" Width="100" Height="30">Speaking</Button>
         </ListBox>
     </Grid>
 </Window>

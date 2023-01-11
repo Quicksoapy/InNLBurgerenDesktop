@@ -24,7 +24,10 @@ public class HomeViewModel : ReactiveObject
     
     public void KnmEventHandler()
     {
-        Assignments assignments = new();
+        Assignments assignments = new()
+        {
+            
+        };
         assignments.Show();
     }
     public void ReadingEventHandler()
