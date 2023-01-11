@@ -106,7 +106,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel()
+            DataContext = new AssignmentsViewModel(0)
         };
         assignments.Show();
     }
@@ -115,16 +115,26 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel()
+            DataContext = new AssignmentsViewModel(1)
         };
         assignments.Show();
     }
 
+   
+    private void WritingEventHandler()
+    {
+        Assignments assignments = new()
+        {
+            DataContext = new AssignmentsViewModel(2)
+        };
+        assignments.Show();
+    }
+    
     private void ListeningEventHandler()
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel()
+            DataContext = new AssignmentsViewModel(3)
         };
         assignments.Show();
     }
@@ -133,17 +143,9 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel()
+            DataContext = new AssignmentsViewModel(4)
         };
         assignments.Show();
     }
 
-    private void WritingEventHandler()
-    {
-        Assignments assignments = new()
-        {
-            DataContext = new AssignmentsViewModel()
-        };
-        assignments.Show();
-    }
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Reactive;
 using System.Reactive.Disposables;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Avalonia.Controls.Chrome;
 using HarfBuzzSharp;
 using InNLBurgeren.Models;
@@ -18,15 +19,13 @@ namespace InNLBurgeren.ViewModels;
 public class AssignmentsViewModel : ReactiveObject
 {
 
-   public AssignmentsViewModel()
+   public AssignmentsViewModel(int subjectId)
    {
-      OnLoad = ReactiveCommand.Create(OnLoadEventHandler);
       OnSubmit = ReactiveCommand.Create(OnSubmitEventHandler);
+      SubjectId = subjectId;
    }
-   public ReactiveCommand<Unit, Unit> OnLoad { get; }
-   public ReactiveCommand<Unit, Unit> OnSubmit { get; }
-   public int SubjectId { get; set; }
-
+   public ReactiveCommand<Unit, Task> OnSubmit { get; }
+   private int SubjectId { get; set; }
    private List<Assignment> AssignmentsList = new List<Assignment>();
    private DatabaseHandling.MySql _mySql = new DatabaseHandling.MySql();
    public int CurrentQuestionId { get; set; } = -1;
@@ -38,13 +37,8 @@ public class AssignmentsViewModel : ReactiveObject
       set => this.RaiseAndSetIfChanged(ref currentQuestion, value);
    }
    public string UserInput { get; set; }
-   
-   private void OnLoadEventHandler()
-   {
-      
-   }
 
-   private void OnSubmitEventHandler()
+   private async Task OnSubmitEventHandler()
    {
       if (CurrentQuestionId > -1)
       {
@@ -52,18 +46,18 @@ public class AssignmentsViewModel : ReactiveObject
          {
             var messageboxStandardWindow = MessageBox.Avalonia.MessageBoxManager
                .GetMessageBoxStandardWindow("Correct!","");
-            messageboxStandardWindow.Show();
+            await messageboxStandardWindow.Show();
          }
          else
          {
             var messageboxStandardWindow = MessageBox.Avalonia.MessageBoxManager
                .GetMessageBoxStandardWindow("Incorrect.", "");
-            messageboxStandardWindow.Show();
+            await messageboxStandardWindow.Show();
          }
       }
       else
       {
-         _mySql.GetAssignments(DatabaseHandling.MySql.Subjects.Knm);
+         AssignmentsList = await  _mySql.GetAssignments(SubjectId);
       }
       CurrentQuestionId += 1;
       CurrentQuestion = AssignmentsList[CurrentQuestionId].Question;

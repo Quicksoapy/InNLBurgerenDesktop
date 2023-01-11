@@ -21,8 +21,8 @@ public class HomeViewModel : ReactiveObject
     public ReactiveCommand<Unit, Unit> SpeakingOpen { get; }
     public ReactiveCommand<Unit, Unit> WritingOpen { get; }
 
-    
-    public void KnmEventHandler()
+
+    private void KnmEventHandler()
     {
         Assignments assignments = new()
         {
@@ -30,7 +30,8 @@ public class HomeViewModel : ReactiveObject
         };
         assignments.Show();
     }
-    public void ReadingEventHandler()
+
+    private void ReadingEventHandler()
     {
         Assignments assignments = new();
         assignments.Show();
