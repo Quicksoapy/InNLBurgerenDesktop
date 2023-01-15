@@ -19,13 +19,13 @@ namespace InNLBurgeren.ViewModels;
 public class AssignmentsViewModel : ReactiveObject
 {
 
-   public AssignmentsViewModel(int subjectId)
+   public AssignmentsViewModel(DatabaseHandling.MySql.Subjects subjectId)
    {
       OnSubmit = ReactiveCommand.Create(OnSubmitEventHandler);
       SubjectId = subjectId;
    }
    public ReactiveCommand<Unit, Task> OnSubmit { get; }
-   private int SubjectId { get; set; }
+   private DatabaseHandling.MySql.Subjects SubjectId { get; set; }
    private List<Assignment> AssignmentsList = new List<Assignment>();
    private DatabaseHandling.MySql _mySql = new DatabaseHandling.MySql();
    public int CurrentQuestionId { get; set; } = -1;

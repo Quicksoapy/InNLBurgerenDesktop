@@ -59,7 +59,6 @@ public class MySql
             await conn.OpenAsync();
             await using (var command = conn.CreateCommand())
             {
-                //fix parameter if time left
                 command.CommandText = "SELECT username FROM users " +
                                       "WHERE username ='"+ username + "' AND password ='" + password+"'";
                 var sqlResponse = await command.ExecuteScalarAsync();
@@ -97,7 +96,7 @@ public class MySql
         }
     }
     
-    public async Task<List<Assignment>> GetAssignments(int subject)
+    public async Task<List<Assignment>> GetAssignments(Subjects subject)
     {
         await using (var conn = GetConn().Result)
         {

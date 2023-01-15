@@ -15,7 +15,7 @@ using MySql = InNLBurgeren.DatabaseHandling.MySql;
 
 namespace InNLBurgeren.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
+public class MainWindowViewModel : ReactiveObject
 {
     public MainWindowViewModel()
     {
@@ -24,8 +24,6 @@ public class MainWindowViewModel : ViewModelBase
         
         KnmOpen = ReactiveCommand.Create(KnmEventHandler);
         ReadingOpen = ReactiveCommand.Create(ReadingEventHandler);
-        ListeningOpen = ReactiveCommand.Create(ListeningEventHandler);
-        SpeakingOpen = ReactiveCommand.Create(SpeakingEventHandler);
         WritingOpen = ReactiveCommand.Create(WritingEventHandler);
     }
     
@@ -33,8 +31,6 @@ public class MainWindowViewModel : ViewModelBase
     public ReactiveCommand<Unit, Unit> Register { get; }
     public ReactiveCommand<Unit, Unit> KnmOpen { get; }
     public ReactiveCommand<Unit, Unit> ReadingOpen { get; }
-    public ReactiveCommand<Unit, Unit> ListeningOpen { get; }
-    public ReactiveCommand<Unit, Unit> SpeakingOpen { get; }
     public ReactiveCommand<Unit, Unit> WritingOpen { get; }
 
     private DatabaseHandling.MySql _mySql = new DatabaseHandling.MySql();
@@ -115,7 +111,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel(1)
+            DataContext = new AssignmentsViewModel(DatabaseHandling.MySql.Subjects.Reading)
         };
         assignments.Show();
     }
@@ -125,7 +121,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel(2)
+            DataContext = new AssignmentsViewModel(DatabaseHandling.MySql.Subjects.Writing)
         };
         assignments.Show();
     }
@@ -134,7 +130,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel(3)
+            DataContext = new AssignmentsViewModel(DatabaseHandling.MySql.Subjects.Listening)
         };
         assignments.Show();
     }
@@ -143,7 +139,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         Assignments assignments = new()
         {
-            DataContext = new AssignmentsViewModel(4)
+            DataContext = new AssignmentsViewModel(DatabaseHandling.MySql.Subjects.Speaking)
         };
         assignments.Show();
     }
